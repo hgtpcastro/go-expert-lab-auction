@@ -1,0 +1,67 @@
+@auctionId=e84a49c0-99b2-4abc-a83f-59f89d82964f 
+@userId=c94d49a2-c2f3-4cab-a943-65b5f53b9459
+
+### GET /user/:userId (userController.FindUserById)
+
+GET http://localhost:8080/user/{{userId}} HTTP/2
+Host: localhost:8080
+Content-Type: application/json
+
+### POST /user (userController.CreateUser)
+
+POST http://localhost:8080/user HTTP/2
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "name": "Mary Doe"
+}
+
+### GET /auction (auctionsController.FindAuctions)
+
+GET http://localhost:8080/auction?status=0 HTTP/2
+Host: localhost:8080
+Content-Type: application/json
+
+### GET /auction/:auctionId (auctionsController.FindAuctionById)
+
+GET http://localhost:8080/auction/{{auctionId}} HTTP/2
+Host: localhost:8080
+Content-Type: application/json
+
+### POST /auction (auctionsController.CreateAuction)
+
+POST http://localhost:8080/auction HTTP/2
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "product_name": "TV",
+  "category": "Electronic",
+  "description": "Tv Sony Bravia 42",
+  "condition": 0
+}
+
+### GET /auction/winner/:auctionId (auctionsController.FindWinningBidByAuctionId)
+
+GET http://localhost:8080/auction/winner/{{auctionId}} HTTP/2
+Host: localhost:8080
+Content-Type: application/json
+
+### POST /bid (bidController.CreateBid)
+
+POST http://localhost:8080/bid HTTP/2
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "user_id": "{{userId}}",
+  "auction_id": "{{auctionId}}",
+  "amount": 150.0
+}
+
+### GET /bid/:auctionId (bidController.FindBidByAuctionId)
+
+GET http://localhost:8080/bid/{{auctionId}} HTTP/2
+Host: localhost:8080
+Content-Type: application/json
